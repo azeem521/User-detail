@@ -39,7 +39,8 @@ function addform(e){
     deleteBtn.appendChild(document.createTextNode('X'));
     li.appendChild(deleteBtn);
     count++
-    localStorage.setItem('Item'+count,newItem)
+    newItem_serialized=JSON.stringify(newItem)
+    localStorage.setItem('Item'+count,newItem_serialized)
 }
 
 function removeItem(e){
