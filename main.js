@@ -19,6 +19,7 @@
 var form=document.getElementById('addForm');
 var itemList=document.getElementById('items');
 var filter=document.getElementById('filter');
+var count=0;
 
 form.addEventListener('submit',addform);
 itemList.addEventListener('click',removeItem);
@@ -36,14 +37,15 @@ function addform(e){
     var deleteBtn=document.createElement('button');
     deleteBtn.className='btn btn-danger btn-sm float-right delete';
     deleteBtn.appendChild(document.createTextNode('X'));
-    li.appendChild(deleteBtn)
+    li.appendChild(deleteBtn);
+    count++
+    localStorage.setItem('Item'+count,newItem)
 }
 
 function removeItem(e){
     if(e.target.classList.contains('delete')){
         if(confirm('Are you sure ?')){
             var li=e.target.parentElement;
-        itemList.removeChild(li);
         }
     }
 }
